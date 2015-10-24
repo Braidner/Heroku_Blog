@@ -1,0 +1,8 @@
+### Java template
+.mvn
+.idea
+*.iml
+
+### Maven template
+target/
+
