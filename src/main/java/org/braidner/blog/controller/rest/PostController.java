@@ -36,6 +36,6 @@ public class PostController {
     @Secured("ROLE_DBA")
     @RequestMapping(method = RequestMethod.POST)
     public void createPost(@RequestBody Post post) {
-//        postService.saveEntity(post);
+        postService.savePost(post);
     }
 }
