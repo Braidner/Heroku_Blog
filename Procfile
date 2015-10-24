@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  target/Blog-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -Dspring.datasource.url=$URL -Dspring.datasource.username=$LOGIN -Dspring.datasource.password=$PASSWORD -jar  target/Blog-0.0.1-SNAPSHOT.jar
