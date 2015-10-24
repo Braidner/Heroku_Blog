@@ -28,9 +28,8 @@ import java.io.IOException;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("mkyong").password("123456").roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password("123456").roles("DBA");
+        auth.inMemoryAuthentication().withUser("admin").password("123").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("dba").password("123").roles("DBA");
     }
 
     @Override
@@ -38,10 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .httpBasic()
                 .and()
-//            .authorizeRequests()
-//                .antMatchers("/login/**", "/rest/blog**").permitAll()
-//                .antMatchers("/rest/**").hasRole("DBA")
-//                .and()
                 .csrf().csrfTokenRepository(csrfTokenRepository()).and()
                 .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
     }
