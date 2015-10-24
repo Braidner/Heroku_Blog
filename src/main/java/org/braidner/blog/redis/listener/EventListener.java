@@ -26,9 +26,6 @@ public class EventListener extends JedisPubSub {
     @Override
     public void onSubscribe(String channel, int subscribedChannels) {
         log.info("SUBSCRIBED ON CHANEL: " + channel);
-        log.debug("SUBSCRIBED ON CHANEL: " + channel);
-        log.error("SUBSCRIBED ON CHANEL: " + channel);
-        log.fatal("SUBSCRIBED ON CHANEL: " + channel);
     }
 
     @Override
