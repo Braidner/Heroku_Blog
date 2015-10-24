@@ -1,4 +1,4 @@
-package org.braidner.blog.controller;
+package org.braidner.blog.controller.exception;
 
 /**
  * @author KuznetsovNE/ 09.09.2015.

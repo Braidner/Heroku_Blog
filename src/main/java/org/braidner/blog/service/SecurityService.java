@@ -1,37 +1,27 @@
 package org.braidner.blog.service;
 
+import org.braidner.blog.entity.Profile;
+import org.braidner.blog.repository.ProfileRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by Braidner on 9/4/2015.
+ * @author Braidner
  */
 @Service
-public class SecurityService {
+public class SecurityService extends BaseService implements UserDetailsService {
 
-////    @Autowired
-//    private UserRepository userRepository;
-//
-//    public boolean isLogined() {
-//        return false;
-//    }
-//
-//    public Profile login(String login, String password, OAuthProvider provider, String oauthId) throws Exception {
-//        UserFilter userFilter = new UserFilter(login, password, provider, oauthId);
-//        Profile profile = userRepository.findUser(userFilter);
-//
-//        if (profile == null) {
-//            throw new Exception("Profile not found");
-//        }
-//
-//        return profile;
-//    }
-//
-//    public Profile createUser(Profile profile) {
-//        return userRepository.createUser(profile);
-//    }
-//
-//    public Profile test() {
-//        Profile profile = new Profile();
-//        return profile;
-//    }
+    @Autowired private ProfileRepository profileRepository;
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Profile profile = profileRepository.findByUsername(username);
+        if (profile == null) {
+            throw new UsernameNotFoundException("User with login " + username + " not found");
+        }
+        return profile;
+    }
 }

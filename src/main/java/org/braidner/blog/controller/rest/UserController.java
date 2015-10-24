@@ -1,7 +1,7 @@
 package org.braidner.blog.controller.rest;
 
-import org.braidner.blog.controller.BadRequestException;
-import org.braidner.blog.controller.ResourceNotFoundException;
+import org.braidner.blog.controller.exception.BadRequestException;
+import org.braidner.blog.controller.exception.ResourceNotFoundException;
 import org.braidner.blog.entity.Profile;
 import org.braidner.blog.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class UserController {
     @RequestMapping(value = "create")
     public Profile createUser() {
         Profile profile = new Profile();
-        profile.setLogin("Braidner");
+        profile.setUsername("Braidner");
         profile.setPassword("123");
 //        profile = securityService.createUser(profile);
         if (profile == null) {
