@@ -50,7 +50,7 @@ public class Profile extends BaseEntity implements UserDetails {
     @OneToOne
     private UserInfo userInfo;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Authority> authorities;
 
     @Transient

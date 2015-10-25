@@ -7,7 +7,7 @@ var blogApp = angular.module('blogApp', [
     'angular-loading-bar',
     'postControllers',
     'postServices',
-    'loginControllers'
+    'securityControllers'
 ]).run(['$rootScope', '$location', '$window', 'cfpLoadingBar',
     function ($rootScope, $location, $window, cfpLoadingBar) {
         $rootScope.$on('$routeChangeStart',
@@ -41,7 +41,7 @@ blogApp.config(['$routeProvider', '$locationProvider',
             }).
             when('/auth/:method', {
                 templateUrl: '/angular/templates/login.html',
-                controller: 'Navigation'
+                controller: 'NavigationCtrl'
             }).
             otherwise({
                 redirectTo: '/'

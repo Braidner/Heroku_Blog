@@ -1,6 +1,6 @@
-var loginControllers = angular.module('loginControllers', ['ngRoute']);
+var securityControllers = angular.module('securityControllers', ['ngRoute']);
 
-loginControllers.controller('Navigation', function ($rootScope, $scope, $http, $location, $route) {
+securityControllers.controller('NavigationCtrl', function ($rootScope, $scope, $http, $location, $route) {
 
     $scope.tab = function (route) {
         return $route.current && route === $route.current.controller;
